@@ -2,22 +2,53 @@
 // Variables
 // --------------------------------------------------
 
-
 //== Colors
-//
-//## Gray and brand colors for use across Bootstrap.
 
-@gray-darker:            lighten(#000, 13.5%); // #222
-@gray-dark:              lighten(#000, 20%);   // #333
-@gray:                   lighten(#000, 33.5%); // #555
+//== BitTorrent Colors
+@gray-darker:            lighten(#000, 20%);   // #333
+@gray-dark:              lighten(#000, 30%);   // #4D4
+@gray:                   lighten(#000, 40%);   // #666
 @gray-light:             lighten(#000, 60%);   // #999
-@gray-lighter:           lighten(#000, 93.5%); // #eee
+@gray-lighter:           lighten(#000, 80%);   // #CCC
 
-@brand-primary:         #428bca;
-@brand-success:         #5cb85c;
-@brand-info:            #5bc0de;
-@brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
+@near-white:             #F2F2F2;
+
+@bt-darker:              #3B3356;
+@bt-dark:                #594C81;
+@bt-primary:             #7665AC;
+@bt-light:               #9184BD;
+@bt-lighter:             #ADA3CD;
+
+@bundles-darker:         #004080;
+@bundles-dark:           #0060BF;
+@bundles-primary:        #0080FF;
+@bundles-light:          #3399FF;
+@bundles-lighter:        #66B3FF;
+
+@ut-darker:              #3B5C20;
+@ut-dark:                #598A2F;
+@ut-primary:             #76B83F;
+@ut-light:               #91C665;
+@ut-lighter:             #ADD48C;
+
+@orange-darker:          #804813;
+@orange-dark:            #BF6C1D;
+@orange-primary:         #FF9026;
+@orange-light:           #FFA652;
+@orange-lighter:         #FFBC7D;
+
+@red-darker:             #69100D;
+@red-dark:               #9E1814;
+@red-primary:            #D2201A;
+@red-light:              #DB4C47;
+@red-lighter:            #E47976;
+
+//== Bootstrap 3 Colors
+@brand-primary:          #428bca;
+@brand-success:          #5cb85c;
+@brand-info:             #5bc0de;
+@brand-warning:          #f0ad4e;
+@brand-danger:           #d9534f;
 
 
 //== Scaffolding
@@ -25,7 +56,7 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #fff;
+@body-bg:               @near-white;
 //** Global text color on `<body>`.
 @text-color:            @gray-dark;
 
