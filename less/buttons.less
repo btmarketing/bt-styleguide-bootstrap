@@ -2,158 +2,248 @@
 // Buttons
 // --------------------------------------------------
 
-
 // Base styles
 // --------------------------------------------------
 
 .btn {
-  display: inline-block;
-  margin-bottom: 0; // For input.btn
-  font-weight: @btn-font-weight;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
-  white-space: nowrap;
-  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
-  .user-select(none);
-
-  &,
-  &:active,
-  &.active {
-    &:focus {
-      .tab-focus();
-    }
-  }
-
-  &:hover,
-  &:focus {
-    color: @btn-default-color;
-    text-decoration: none;
-  }
-
-  &:active,
-  &.active {
-    outline: 0;
-    background-image: none;
-    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: not-allowed;
-    pointer-events: none; // Future-proof disabling of clicks
-    .opacity(.65);
-    .box-shadow(none);
-  }
+    border: none;
+    border-radius: 3px;
+    display: block;
+    font-weight: 300;
+    margin-bottom: 24px;
+    padding: 0;
+    width: 100%;
+    transition: background-color .5s, color .5s, border .5s;
+    -webkit-transition: background-color .5s, color .5s, border .5s; /* For Safari 3.1 to 6.0 */
 }
 
+.btn-icon { margin-right: 12px; }
+
+.btn-subtext {
+    display: block;
+    font-size: @font-size-small;
+    line-height: @font-size-small;
+}
+
+a.btn {
+    display: block;
+    text-align: center;
+
+    &:hover { text-decoration: none; }
+}
+
+/*
+.btn {
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: @btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    white-space: nowrap;
+    .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-small);
+    .user-select(none);
+
+    &,
+    &:active,
+    &.active {
+        &:focus {
+            .tab-focus();
+        }
+    }
+
+    &:hover,
+    &:focus {
+        color: @btn-default-color;
+        text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+        outline: 0;
+        background-image: none;
+        .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+        pointer-events: none; // Future-proof disabling of clicks
+        .opacity(.65);
+        .box-shadow(none);
+    }
+}
+*/
 
 // Alternate buttons
 // --------------------------------------------------
 
+.btn-default, .btn-secondary {
+    background-color: @bundles-light;
+    color: @near-white;
+
+    &:hover { background-color: @bundles-primary; }
+
+    &:active {
+        background-color: @bundles-dark;
+        outline: none !important;
+    }
+
+    &:disabled {
+        background-color: @bundles-light !important;
+        cursor: default !important;
+        opacity: .5;
+    }
+}
+.btn-secondary{
+    background-color: transparent;
+    border: 1px solid @bundles-lighter;
+    color: @bundles-light;
+
+    &:hover {
+        background-color: rgba(255,255,255,.25);
+        border: 1px solid @gray-dark;
+        color: @gray-dark;
+    }
+
+    &:active {
+        background-color: @gray-light;
+        color: @gray-darker;
+        outline: none !important;
+    }
+}
+a.btn-default {
+    &:hover { color: @near-white; }
+}
+
+/*
 .btn-default {
-  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+    .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }
-.btn-primary {
-  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+.btn-secondary {
+    .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
 }
+
 // Success appears as green
 .btn-success {
-  .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+    .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
 }
 // Info appears as blue-green
 .btn-info {
-  .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+    .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
 }
 // Warning appears as orange
 .btn-warning {
-  .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+    .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
 }
 // Danger and error appear as red
 .btn-danger {
-  .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+    .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
 }
-
 
 // Link buttons
 // -------------------------
 
 // Make a button look and behave like a link
 .btn-link {
-  color: @link-color;
-  font-weight: normal;
-  cursor: pointer;
-  border-radius: 0;
+    color: @link-color;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 0;
 
-  &,
-  &:active,
-  &[disabled],
-  fieldset[disabled] & {
-    background-color: transparent;
-    .box-shadow(none);
-  }
-  &,
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: transparent;
-  }
-  &:hover,
-  &:focus {
-    color: @link-hover-color;
-    text-decoration: underline;
-    background-color: transparent;
-  }
-  &[disabled],
-  fieldset[disabled] & {
+    &,
+    &:active,
+    &[disabled],
+    fieldset[disabled] & {
+        background-color: transparent;
+        .box-shadow(none);
+    }
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: transparent;
+    }
     &:hover,
     &:focus {
-      color: @btn-link-disabled-color;
-      text-decoration: none;
+        color: @link-hover-color;
+        text-decoration: underline;
+        background-color: transparent;
     }
-  }
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus {
+            color: @btn-link-disabled-color;
+            text-decoration: none;
+        }
+    }
 }
+*/
 
 
 // Button Sizes
 // --------------------------------------------------
 
+.btn-xl {
+    font-size: @font-size-h3;
+    height: 96px;
+}
+a.btn-xl { padding-top: 20px; }
+
 .btn-lg {
-  // line-height: ensure even-numbered height of button next to large input
-  .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+    font-size: @font-size-large;
+    height: 72px;
+}
+a.btn-lg { line-height: 72px; }
+
+.btn-md {
+    font-size: @font-size-large;
+    height: 48px;
+}
+a.btn-md { line-height: 48px; }
+
+.btn-sm { height: 36px; }
+a.btn-sm { line-height: 36px; }
+
+/*
+.btn-lg {
+    // line-height: ensure even-numbered height of button next to large input
+    .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
 }
 .btn-sm {
-  // line-height: ensure proper height of button next to small input
-  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+    // line-height: ensure proper height of button next to small input
+    .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
 }
 .btn-xs {
-  .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @border-radius-small);
-}
+    .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}*/
 
 
 // Block button
 // --------------------------------------------------
 
+/*
 .btn-block {
-  display: block;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 // Vertically space out multiple block buttons
 .btn-block + .btn-block {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
 // Specificity overrides
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.btn-block {
-    width: 100%;
-  }
-}
+    &.btn-block {
+        width: 100%;
+    }
+}*/
